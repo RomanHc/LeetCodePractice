@@ -6,7 +6,7 @@
  * @param {number} y
  * @return {number}
  */
-let hammingDistance = function(4, 1) {
+let hammingDistance = function(x,y) {
 	return getCount1OfValue(x^y);	
 };
 function getCount1OfValue(x){
@@ -15,5 +15,6 @@ function getCount1OfValue(x){
 		count++;
 		x=x&(x-1);
 	}
-	return x;
+	return count;
 }
+//调用：consoe.log( hammingDistance(4,1));
