@@ -14,5 +14,38 @@ Given a non-empty binary tree, return the average value of the nodes on each lev
 **Note:**
 1. The range of node's value is in the range of 32-bit signed integer.
 
-**Code:**
 
+**Code:**
+	
+	/**
+	 * Definition for a binary tree node.
+	 * function TreeNode(val) {
+	 *     this.val = val;
+	 *     this.left = this.right = null;
+	 * }
+	 */
+	/**
+	 * @param {TreeNode} root
+	 * @return {number[]}
+	 */
+	var averageOfLevels = function(root) {
+		let result=[];
+		let arr=[];
+		arr.push(root);
+	    while(arr.length!=0){
+	    	let num=arr.length;
+	    	let sum=0;
+	    	for(let i=0;i<num;i++){
+	    		let currentNode=arr.shift();
+	    		sum+=currentNode.val;
+	    		if(currentNode.left!=null){
+	    			arr.push(currentNode.left);
+	    		}
+	    		if(currentNode.right!=null){
+	    			arr.push(currentNode.right);
+	    		}
+	    	}
+	    	result.push(sum/num);
+	    }
+	    return result;
+	};
